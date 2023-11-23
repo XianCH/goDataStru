@@ -35,13 +35,13 @@ func (ll *LinkedList) Display() {
 	fmt.Println("nil")
 }
 
-func main() {
-	ll := LinkedList{}
+// func main() {
+// 	ll := LinkedList{}
 
-	ll.Append(1)
-	ll.Append(2)
-	ll.Append(3)
+// 	ll.Append(1)
+// 	ll.Append(2)
+// 	ll.Append(3)
 
-	fmt.Println("Single Linked List:")
-	ll.Display()
-}
+// 	fmt.Println("Single Linked List:")
+// 	ll.Display()
+// }
