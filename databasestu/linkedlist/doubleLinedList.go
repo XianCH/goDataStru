@@ -1,49 +1,80 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
-type Node struct {
-	data interface{}
-	prev *Node
-	next *Node
+type DoubleNode struct {
+	Pre  *DoubleNode
+	Next *DoubleNode
+	Data int
 }
 
-type DoublyLinkedList struct {
-	head *Node
-	tail *Node
+type DoubleLinkedList struct {
+	head *DoubleNode
+	tail *DoubleNode
 }
 
-func (dll *DoublyLinkedList) Append(data interface{}) {
-	newNode := &Node{data: data, prev: nil, next: nil}
-	if dll.head == nil {
-		dll.head = newNode
-		dll.tail = newNode
-	} else {
-		newNode.prev = dll.tail
-		dll.tail.next = newNode
-		dll.tail = newNode
+// 在末尾添加
+func (l *DoubleLinkedList) AppendToTail(data int) {
+	newNode := &DoubleNode{Data: data}
+	if l.head == nil {
+		l.head = newNode
+		l.tail = newNode
+		return
+	}
+
+	newNode.Pre = l.tail
+	l.tail.Next = newNode
+	l.tail = newNode
+}
+
+func (l *DoubleLinkedList) AppendToHeader(data int) {
+	newNode := &DoubleNode{Data: data}
+	if l.head == nil {
+		l.head = newNode
+		l.tail = newNode
+		return
+	}
+
+	newNode.Pre = l.head
+	l.head.Next.Pre = newNode
+	newNode.Next = l.head.Next
+	l.head.Next = newNode
+}
+
+func (l *DoubleLinkedList) DeleteToTail(data any) {
+	if l.head == nil {
+		return
+	}
+
+	if l.head == l.tail {
+		l.head = nil
+		l.tail = nil
+	}
+	l.tail = l.tail.Pre
+	l.tail.Next.Pre = nil
+	l.tail.Next = nil
+}
+
+func (l *DoubleLinkedList) DisplayList() {
+	if l.head == nil {
+		return
+	}
+
+	tmp := l.head
+	for tmp != nil {
+		fmt.Println(tmp.Data)
+		tmp = tmp.Next
 	}
 }
 
-func (dll *DoublyLinkedList) Display() {
-	current := dll.head
-	for current != nil {
-		fmt.Printf("%v ", current.data)
-		current = current.next
-	}
-	fmt.Println()
-}
+// func main() {
+// 	dl := &DoubleLinkedList{}
 
+// 	datas := []int{1, 2, 3, 4, 5, 6, 7, 8}
 
-func main() {
-	dll := DoublyLinkedList{}
+// 	for _, data := range datas {
+// 		dl.AppendToTail(data)
+// 	}
 
-	dll.Append(1)
-	dll.Append(2)
-	dll.Append(3)
-
-	fmt.Println("Doubly Linked List:")
-	dll.Display()
-}
+// 	dl.DisplayList()
+// }
