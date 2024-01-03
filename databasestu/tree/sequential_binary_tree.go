@@ -1,4 +1,4 @@
-package main
+package tree
 
 import "fmt"
 
@@ -31,18 +31,18 @@ func (sbt *SequentialBinaryTree) PreorderTraversal(index int) {
 	}
 }
 
-func main() {
-	tree := NewSequentialBinaryTree(10)
-
-	// Insert nodes
-	tree.Insert(10, 0)
-	tree.Insert(2, 1)
-	tree.Insert(3, 2)
-	tree.Insert(4, 3)
-	tree.Insert(5, 4)
-	tree.Insert(6, 5)
-
-	// Perform Preorder Traversal and print the tree
-	fmt.Println("Preorder Traversal:")
-	tree.PreorderTraversal(0)
-}
+// func main() {
+// 	tree := NewSequentialBinaryTree(10)
+//
+// 	// Insert nodes
+// 	tree.Insert(10, 0)
+// 	tree.Insert(2, 1)
+// 	tree.Insert(3, 2)
+// 	tree.Insert(4, 3)
+// 	tree.Insert(5, 4)
+// 	tree.Insert(6, 5)
+//
+// 	// Perform Preorder Traversal and print the tree
+// 	fmt.Println("Preorder Traversal:")
+// 	tree.PreorderTraversal(0)
+// }

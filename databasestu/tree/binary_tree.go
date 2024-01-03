@@ -1,4 +1,4 @@
-package main
+package tree
 
 import (
 	"fmt"
@@ -12,6 +12,10 @@ type node struct {
 
 type binaryTree struct {
 	root *node
+}
+
+func NewBinaryTree() *binaryTree {
+	return &binaryTree{}
 }
 
 // 插入原始
