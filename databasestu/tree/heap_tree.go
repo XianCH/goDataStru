@@ -1,9 +1,5 @@
 package tree
 
-import (
-	"fmt"
-)
-
 func heapSort(arr []int) {
 	n := len(arr)
 
@@ -40,13 +36,4 @@ func heapify(arr []int, n, i int) {
 		arr[i], arr[largest] = arr[largest], arr[i]
 		heapify(arr, n, largest)
 	}
-}
-
-func main() {
-	arr := []int{4, 10, 3, 5, 1}
-	fmt.Println("Unsorted array:", arr)
-
-	heapSort(arr)
-
-	fmt.Println("Sorted array:", arr)
 }
