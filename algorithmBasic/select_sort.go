@@ -1,4 +1,4 @@
-package sort
+package algorithmBasic
 
 func selectSort(arr []int) {
 	n := len(arr)
@@ -14,10 +14,3 @@ func selectSort(arr []int) {
 		}
 	}
 }
-
-// func main() {
-// 	arrs := []int{3, 5, 7, 2, 3, 8, 1}
-// 	fmt.Println(arrs)
-// 	selectSort(arrs)
-// 	fmt.Println(arrs)
-// }
