@@ -1,6 +1,4 @@
-package main
-
-import "fmt"
+package algorithmBasic
 
 func InsertSort(array []int) {
 	n := len(array)
@@ -11,10 +9,4 @@ func InsertSort(array []int) {
 			}
 		}
 	}
-}
-
-func main() {
-	array := []int{7, 6, 4, 5, 3, 2}
-	InsertSort(array)
-	fmt.Println(array)
 }
